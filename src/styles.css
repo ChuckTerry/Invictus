@@ -1,3 +1,10 @@
+:root {
+  --border-blue: #356995;
+  --flash-card-background: #CFDBE6;
+  --title-color: #07243C;
+  --white: #FFFFFF;
+}
+
 body {
   margin: 0;
   width: 100%;
@@ -11,7 +18,7 @@ body {
   font-weight: 500;
   font-size: 22pt;
   line-height: 90%;
-  color: #07243C;
+  color: var(--title-color);
 }
 
 div.invictus.flip-container {
@@ -33,34 +40,34 @@ div.invictus.flip-container.expanded .menu-bar {
   border-radius: 20px 20px 0px 0px;
 }
 
-.menu-bar>button {
+.menu-bar > button {
   float: right;
   margin-left: 10px;
   border-radius: 6px;
-  border: 1px solid #356995;
-  border-bottom: 2px solid #356995;
-  border-right: 2px solid #356995;
+  border: 1px solid var(--border-blue);
+  border-bottom: 2px solid var(--border-blue);
+  border-right: 2px solid var(--border-blue);
   background-color: #F5F8FA;
 }
 
-.menu-bar>button:hover {
-  background-color: #FFFFFF;
+.menu-bar > button:hover {
+  background-color: var(--white);
   scale: 112%;
 }
 
 .invictus.close-flip-cards {
   background-color: #ae5858;
-  color: white;
+  color: var(--white);
   width: 30px;
 }
 
-.menu-bar>.invictus.close-flip-cards:hover {
+.menu-bar > .invictus.close-flip-cards:hover {
   background-color: #D99696;
   color: #8E1717;
   -webkit-text-stroke: 2px;
 }
 
-.invictus.card-area-wrapper>div {
+.invictus.card-area-wrapper > div {
   display: inline-block;
 }
 
@@ -68,7 +75,7 @@ div.invictus.flip-container.expanded .menu-bar {
   padding-top: 12px;
   text-align: center;
   background-color: #F5F8FA;
-  border-top: 1.5px solid #356995;
+  border-top: 1.5px solid var(--border-blue);
   border-radius: 0px 0px 20px 20px;
 }
 
@@ -104,17 +111,11 @@ div.selected .card-inner {
   width: 100%;
   height: 100%;
   -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-}
-
-.card-front {
-  background-color: #CFDBE6;
-  border: 2px solid #356995;
+  backface-visibility: hidden;background-color: var(--flash-card-background);
+  border: 2px solid var(--border-blue);
 }
 
 .card-back {
-  background-color: #CFDBE6;
-  border: 2px solid #356995;
   background-repeat: no-repeat;
   transform: rotateY(180deg);
 }
@@ -155,7 +156,7 @@ div.invictus.card-wrapper.active {
 
 .next-card:active,
 .previous-card:active {
-  color: #FFFFFF;
+  color: var(--white);
   transition: 0.1s;
 }
 
