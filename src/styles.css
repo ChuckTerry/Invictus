@@ -1,0 +1,204 @@
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.title-bar {
+  padding-left: 10px;
+  padding-right: 20px;
+  font-variant: small-caps;
+  font-weight: 500;
+  font-size: 22pt;
+  line-height: 90%;
+  color: #07243C;
+}
+
+div.invictus.flip-container {
+  width: 80%;
+  border-radius: 20px;
+  color: #0F4C81;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  box-shadow: 2px 2px 3px 0px rgba(0, 50, 150, 0.28);
+  margin: 8px 0 12px 40px;
+}
+
+.menu-bar {
+  background-color: #E5ECF1;
+  padding: 14px;
+  border-radius: 20px;
+}
+
+div.invictus.flip-container.expanded .menu-bar {
+  border-radius: 20px 20px 0px 0px;
+}
+
+.menu-bar>button {
+  float: right;
+  margin-left: 10px;
+  border-radius: 6px;
+  border: 1px solid #356995;
+  border-bottom: 2px solid #356995;
+  border-right: 2px solid #356995;
+  background-color: #F5F8FA;
+}
+
+.menu-bar>button:hover {
+  background-color: #FFFFFF;
+  scale: 112%;
+}
+
+.invictus.close-flip-cards {
+  background-color: #ae5858;
+  color: white;
+  width: 30px;
+}
+
+.menu-bar>.invictus.close-flip-cards:hover {
+  background-color: #D99696;
+  color: #8E1717;
+  -webkit-text-stroke: 2px;
+}
+
+.invictus.card-area-wrapper>div {
+  display: inline-block;
+}
+
+.invictus.card-area-wrapper {
+  padding-top: 12px;
+  text-align: center;
+  background-color: #F5F8FA;
+  border-top: 1.5px solid #356995;
+  border-radius: 0px 0px 20px 20px;
+}
+
+.invictus.card-area>div.selected {
+  background-color: rgba(255, 255, 255, 0);
+  border: none;
+}
+
+.card-wrapper {
+  background-color: transparent;
+  width: 600px;
+  height: 450px;
+  perspective: 1000px;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+div.selected .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.card-front {
+  background-color: #CFDBE6;
+  border: 2px solid #356995;
+}
+
+.card-back {
+  background-color: #CFDBE6;
+  border: 2px solid #356995;
+  background-repeat: no-repeat;
+  transform: rotateY(180deg);
+}
+
+div.invictus.card-wrapper {
+  display: none;
+  position: relative;
+  right: -300px;
+}
+
+div.invictus.card-wrapper.active {
+  display: inline-block;
+  right: 0px;
+  transition: 1s;
+}
+
+.next-card,
+.previous-card {
+  color: #5C86A9;
+  -webkit-text-stroke: 2px #0F4C81;
+  position: relative;
+  font-size: 80pt;
+  z-index: 0;
+  line-height: 450px;
+  vertical-align: top;
+  -webkit-user-select: none;
+  user-select: none;
+  transition: 0.5s ease-out;
+  cursor: pointer;
+}
+
+.next-card:hover,
+.previous-card:hover {
+  scale: 150%;
+  color: #28a8ce;
+  transition: 0.65s ease-out;
+}
+
+.next-card:active,
+.previous-card:active {
+  color: #FFFFFF;
+  transition: 0.1s;
+}
+
+.next-card {
+  right: -5px;
+}
+
+.next-card:hover {
+  right: -5px;
+}
+
+.previous-card {
+  left: -5px;
+}
+
+.previous-card:hover {
+  right: -10px;
+}
+
+.card-term,
+.card-definition {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90%;
+}
+
+.term-text,
+.definition-text {
+  margin-top: 1rem;
+  margin-bottom: 0rem;
+  font-size: 18pt;
+  font-weight: 500;
+  padding: 36px;
+  border-image: linear-gradient(90deg, transparent 0%, #F5F8FA 50%, rgba(0, 0, 0, 0) 100%);
+  border-width: 3px;
+  border-style: solid;
+  border-image-slice: 0.5;
+}
+
+.card-wrapper,
+.card-inner,
+.card-front,
+.card-back {
+  border-radius: 30px;
+}
