@@ -95,13 +95,19 @@ class FlashCardSet {
       classNames = classNames.includes(' ') ? classNames.split(' ') : [classNames];
     }
     if (Array.isArray(classNames)) {
-      classNames.forEach(name => element.classList.add(name));
+      const classNameCount = classNames.length;
+      for (let index = 0; index < classNameCount; index++) {
+        element.classList.add(classNames[index]);
+      }
     }
     if (childrenArray instanceof HTMLElement) {
       childrenArray = [childrenArray];
     }
     if (Array.isArray(childrenArray)) {
-      childrenArray.forEach(child => element.appendChild(child));
+      const childCount = childrenArray.length;
+      for (let index = 0; index < childCount; index++) {
+        element.appendChild(childrenArray[index]);
+      }
     }
     if (type === 'button') {
       element.type = 'button';
@@ -129,8 +135,11 @@ class FlashCardSet {
 
   shuffle() {
     const cardAreaCards = [...this.cardArea.children];
-    if (cardAreaCards.length > 0) {
-      cardAreaCards.forEach(card => card.remove());
+    const cardCount = cardAreaCards.length;
+    if (cardCount > 0) {
+      for (index = 0; index < cardCount; index++) {
+        cardAreaCards[index].remove();
+      }
     }
     if (this.activeCard !== null) {
       this.activeCard?.classList.remove('selected');
