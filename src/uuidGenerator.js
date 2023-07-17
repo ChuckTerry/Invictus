@@ -8,8 +8,8 @@ function cipher_Numeric2Alpha(numberOrString, preserveNonNumeric = false, lowerc
 }
 
 function makeUuid() {
-  const epoch = Date.now();
-  const random = Math.random().toString().slice(2, 12)
-  return 'uuid-' + epoch + '-' + cipher_Numeric2Alpha(random).toLowerCase();
+  const epoch = Date.now().toString().slice(0, 10);
+  const random = Math.random().toString().slice(2, 12);
+  return 'uuid-' + cipher_Numeric2Alpha(`${random}-${epoch}`, true).toLowerCase();
 }
 
