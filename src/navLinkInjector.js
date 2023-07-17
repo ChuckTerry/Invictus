@@ -5,7 +5,7 @@
 (() => {
   window.addEventListener('load', async () => {
     /* If we're not in edit mode, do nothing  */
-    if (!document.querySelector('#usernavigation input[name=setmode]').checked) {
+    if (!document.querySelector('#usernavigation input[name=setmode]').checked || document.querySelector('.invictus-nav-top') !== null) {
       return;
     }
 
