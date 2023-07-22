@@ -1,3 +1,5 @@
+import { FlashCard } from './FlashCard.js';
+
 /**
  * Handles the creation and management of a set of Flash Cards
  */
@@ -33,17 +35,15 @@ class FlashCardSet {
     const cardCount = json.FlashCards.length;
     for (let index = 0; index < cardCount; index++) {
       const cardData = json.FlashCards[index];
-      const term = cardData.Term.Content;
-      const definition = cardData.Definition.Content;
-      const card = this.createCard(term, definition);
+      const card = new FlashCard(cardData);
       this.cardSet.push(card);
     }
-    invictus.flashCardSets.push(this);
+    invictus.flashCard.sets.push(this);
 
     this.invictusBlock = this.makeInvictusBlock();
     this.element.appendChild(this.invictusBlock);
     this.shuffleAndPlaceCards();
-    this.cardSet[0].classList.add('active');
+    this.cardSet[0].element.classList.add('active');
     this.activeCard = this.cardSet[0];
     this.element.classList.remove('placeholder');
     this.element.parentElement.classList.remove('no-overflow');
@@ -125,21 +125,6 @@ class FlashCardSet {
     return element;
   }
 
-  createCard(term, definition) {
-    /* Term Elements */
-    const termText = this.makeInvictusElement('term-text', 'p', undefined, term);
-    const cardTerm = this.makeInvictusElement('card-term', 'div', termText);
-    const front = this.makeInvictusElement('card-front', 'div', cardTerm);
-    /* Definition Elements */
-    const definitionText = this.makeInvictusElement('definition-text', 'p', undefined, definition);
-    const cardDefinition = this.makeInvictusElement('card-definition', 'div', definitionText);
-    const back = this.makeInvictusElement('card-back', 'div', cardDefinition);
-    /* Element Assembly */
-    const inner = this.makeInvictusElement('card-inner', 'div', [front, back]);
-    const outerCardWrapper = this.makeInvictusElement('card-wrapper', 'div', inner);
-    return outerCardWrapper;
-  }
-
   shuffle() {
     const cardAreaCards = [...this.cardArea.children];
     const cardCount = cardAreaCards.length;
@@ -158,12 +143,12 @@ class FlashCardSet {
       currentIndex--;
       [this.cardSet[currentIndex], this.cardSet[randomIndex]] = [this.cardSet[randomIndex], this.cardSet[currentIndex]];
     }
-    this.cardSet[0].classList.add('active');
+    this.cardSet[0].element.classList.add('active');
     this.activeCard = this.cardSet[0];
     this.activeCardSetIndex = 0;
     const cardSetCount = this.cardSet.length;
     for (let index = 0; index < cardSetCount; index++) {
-      this.cardArea.appendChild(this.cardSet[index]);
+      this.cardArea.appendChild(this.cardSet[index].element);
     }
   }
 
@@ -178,8 +163,7 @@ class FlashCardSet {
     }
     const cardSetCount = this.cardSet.length;
     for (let index = 0; index < cardSetCount; index++) {
-      this.cardSet[index].firstChild.addEventListener('click', this.flipCard);
-      this.cardArea.appendChild(this.cardSet[index]);
+      this.cardArea.appendChild(this.cardSet[index].element);
     }
   }
 
@@ -199,11 +183,6 @@ class FlashCardSet {
     this.cardAreaWrapper = this.makeInvictusElement(['card-area-wrapper', 'hidden'], 'div', [this.previousCardButton, this.cardArea, this.nextCardButton]);
     this.outerWrapper = this.makeInvictusElement(['flip-container'], 'div', [menuBar, this.cardAreaWrapper]);
     return this.outerWrapper;
-  }
-
-  flipCard(eventOrHtmlElement) {
-    const cardElement = eventOrHtmlElement instanceof HTMLElement ? eventOrHtmlElement : eventOrHtmlElement.currentTarget;
-    cardElement.parentElement.classList.toggle('selected');
   }
 
 }
