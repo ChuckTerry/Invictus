@@ -1,4 +1,4 @@
-class FlashCard {
+export class FlashCard {
 
   static from(term, definition) {
     return new FlashCard({
