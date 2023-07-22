@@ -84,7 +84,7 @@ div.invictus.flip-container.expanded .menu-bar {
 }
 
 .invictus.card-area>div.selected {
-  background-color: rgba(255, 255, 255, 0);
+  background-color: transparent;
   border: none;
 }
 
@@ -195,7 +195,7 @@ div.invictus.card-wrapper.active {
   font-size: 18pt;
   font-weight: 500;
   padding: 36px;
-  border-image: linear-gradient(90deg, transparent 0%, #F5F8FA 50%, rgba(0, 0, 0, 0) 100%);
+  border-image: linear-gradient(90deg, transparent 0%, #F5F8FA 50%, transparent 100%);
   border-width: 3px;
   border-style: solid;
   border-image-slice: 0.5;
