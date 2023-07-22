@@ -4,28 +4,19 @@
  */
 (() => {
   window.addEventListener('load', async () => {
-    /* If we're not in edit mode, do nothing  */
-    if (!document.querySelector('#usernavigation input[name=setmode]').checked || document.querySelector('.invictus-nav-top') !== null) {
+    const notInEditMode = !document.querySelector('#usernavigation input[name=setmode]')?.checked;
+    const topLinkAlreadyExists = document.querySelector('.invictus-nav-top') !== null;
+    /* If we're not in edit mode or the nav link already exists, do nothing  */
+    if (notInEditMode || topLinkAlreadyExists !== null) {
       return;
     }
 
-    const navMenuElement = document.createElement('li');
-    navMenuElement.classList.add('nav-item');
-    navMenuElement.setAttribute('role', 'none');
-    navMenuElement.setAttribute('data-key', 'flashcards');
-    navMenuElement.setAttribute('data-forceintomoremenu', 'false');
-
-    const navMenuLink = document.createElement('a');
-    navMenuElement.classList.add('nav-link', 'invictus-nav-top');
-    navMenuElement.setAttribute('role', 'menuitem');
-    navMenuElement.setAttribute('tabindex', '-1');
-    navMenuElement.href = '#';
-    navMenuElement.innerText = 'Invictus';
-
-    navMenuElement.appendChild(navMenuLink);
-
-    const navParentUl = document.querySelector('.primary-navigation > nav > ul');
-    const firstHiddenLi = navParentUl.querySelector('.d-none');
-    navParentUl.insertBefore(navMenuElement, firstHiddenLi);
+    const elementOuterHtml = '<li class="nav-item nav-link invictus-nav-top" role="menuitem" data-key="flashcards" data-forceintomoremenu="false" tabindex="-1">Invictus<a></a></li>';
+    const element = document.createElement('li');
+    const parent = document.querySelector('.primary-navigation > nav > ul');
+    const firstHiddenLi = parent.querySelector('.d-none');
+    parent.insertBefore(element, firstHiddenLi);
+    /** @security outerHTML is safe in context because it is a static string */
+    element.outerHTML = elementOuterHtml;
   });
 })();
