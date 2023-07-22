@@ -1,8 +1,9 @@
-(() => {
+export function checkForUpdates() {
   const versionUrl = 'https://chuckterry.me/projects/invictus/version.txt';
   const version = globalThis?.invictus?.version;
   if (document.querySelector('#usernavigation input[name=setmode]')?.checked !== true) return;
   if (version === undefined || invictus?.updateCheckPerformed === true) return;
+  invictus.updateCheckPerformed = true;
   fetch(versionUrl)
     .then(response => response.text())
     .then(versionText => {
@@ -13,9 +14,9 @@
         updateNotification.innerHTML = '<a id="invictus-update-link" href="#">A new version of invictus is available!</a>';
         document.body.appendChild(updateNotifier);
       }
-      invictus.updateCheckPerformed = true;
     })
     .catch(error => {
       console.error('An error occured that prevented Invictus from checking for updates: %o', error);
+      invictus.updateCheckPerformed = false;
     });
-})();
+}
