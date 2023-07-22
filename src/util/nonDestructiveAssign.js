@@ -4,7 +4,7 @@
  * @param {object} source The source object containing properties to assign
  * @returns The target object with properties assigned from the source object
  */
-function nonDestructiveAssign(target, source) {
+export function nonDestructiveAssign(target, source) {
   const entries = Object.entries(source);
   const length = entries.length;
   for (let index = 0; index < length; index++) {
