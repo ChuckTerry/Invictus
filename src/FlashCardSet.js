@@ -12,6 +12,7 @@ class FlashCardSet {
     if (typeof json === 'string') {
       json = JSON.parse(json);
     }
+    this.json = json;
     this.uuid = json.UUID;
     this.element = document.querySelector('#' + this.uuid);
     if (this.element === null) {
@@ -38,7 +39,7 @@ class FlashCardSet {
       const card = new FlashCard(cardData);
       this.cardSet.push(card);
     }
-    invictus.flashCard.sets.push(this);
+    invictus.flashCards.sets.push(this);
 
     this.invictusBlock = this.makeInvictusBlock();
     this.element.appendChild(this.invictusBlock);
