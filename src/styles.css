@@ -3,6 +3,7 @@
   --flash-card-background: #CFDBE6;
   --title-color: #07243C;
   --white: #FFFFFF;
+  --black: #010101;
 }
 
 body {
@@ -206,4 +207,12 @@ div.invictus.card-wrapper.active {
 .card-front,
 .card-back {
   border-radius: 30px;
+}
+
+.invictus-update-notification {
+  width: 100%;
+  height: auto;
+  background-color: var(--flash-card-background);
+  z-index: 1000;
+  border-top: 1px solid var(--black);
 }
