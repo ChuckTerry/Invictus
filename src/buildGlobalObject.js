@@ -19,7 +19,8 @@ import { nonDestructiveAssign } from './util/nonDestructiveAssign.js';
         allowShuffle: true
       }
     },
-    version: '1.0.0'
+    version: '1.0.0',
+    updateCheckPerformed: false
   };
 
   if (globalThis.invictus === undefined) globalThis.invictus = {};
