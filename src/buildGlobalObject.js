@@ -18,7 +18,8 @@ import { nonDestructiveAssign } from './util/nonDestructiveAssign.js';
         forceLightMode: false,
         allowShuffle: true
       }
-    }
+    },
+    version: '1.0.0'
   };
 
   if (globalThis.invictus === undefined) globalThis.invictus = {};
