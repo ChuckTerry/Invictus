@@ -1,4 +1,11 @@
+/**
+ * Handles the creation and management of a set of Flash Cards
+ */
 class FlashCardSet {
+  /**
+   * Class Constructor
+   * @param {object | string} json The JSON data for the Flash Card Set
+   */
   constructor(json) {
     if (typeof json === 'string') {
       json = JSON.parse(json);
@@ -154,9 +161,10 @@ class FlashCardSet {
     this.cardSet[0].classList.add('active');
     this.activeCard = this.cardSet[0];
     this.activeCardSetIndex = 0;
-    this.cardSet.forEach(card => {
-      this.cardArea.appendChild(card);
-    });
+    const cardSetCount = this.cardSet.length;
+    for (let index = 0; index < cardSetCount; index++) {
+      this.cardArea.appendChild(this.cardSet[index]);
+    }
   }
 
   shuffleAndPlaceCards() {
@@ -168,10 +176,11 @@ class FlashCardSet {
         [this.cardSet[currentIndex], this.cardSet[randomIndex]] = [this.cardSet[randomIndex], this.cardSet[currentIndex]];
       }
     }
-    this.cardSet.forEach(card => {
-      card.firstChild.addEventListener('click', this.flipCard);
-      this.cardArea.appendChild(card);
-    });
+    const cardSetCount = this.cardSet.length;
+    for (let index = 0; index < cardSetCount; index++) {
+      this.cardSet[index].firstChild.addEventListener('click', this.flipCard);
+      this.cardArea.appendChild(this.cardSet[index]);
+    }
   }
 
   makeInvictusBlock() {
