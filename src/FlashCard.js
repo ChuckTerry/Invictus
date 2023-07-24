@@ -32,20 +32,20 @@ export class FlashCard {
     innerElement.outerHTML = '<div class="invictus card-inner"><div class="invictus card-front"><div class="invictus card-term"><p class="invictus term-text"></p></div></div><div class="invictus card-back"><div class="invictus card-definition"><p class="invictus definition-text"></p></div></div></div>';
     element.querySelector('.term-text').innerText = this.term;
     element.querySelector('.definition-text').innerText = this.definition;
-    innerElement.addEventListener('click', this.flip);
+    element.addEventListener('click', this.flip);
     return element;
   }
 
   hide() {
     this.element.classList.remove('active');
     this.element.classList.remove('selected');
-    this.activeCard.classList.add('hidden');
+    this.element.classList.add('hidden');
     return this.element;
   }
 
   show() {
     this.element.classList.add('active');
-    this.activeCard.classList.remove('hidden');
+    this.element.classList.remove('hidden');
     return this.element;
   }
 
