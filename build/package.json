@@ -1,3 +1,24 @@
 {
-  "type": "module"
+  "name": "invictus-build-tools",
+  "version": "1.0.0",
+  "description": "Tools for Building Invictus, Flash Cards for Moodle",
+  "homepage": "https://github.com/ChuckTerry/Invictus/tree/main/build",
+  "author": {
+    "name": "Chuck Terry",
+    "email": "Chuck.Terry@BrokenBlueJeans.com",
+    "url": "https://github.com/ChuckTerry"
+  },
+  "license": "MIT",
+  "main": "build.js",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ChuckTerry/Invictus/tree/main/"
+  },
+  "bugs": {
+    "email": "BugReport@BrokenBlueJeans.com",
+    "url": "https://github.com/ChuckTerry/Invictus/issues"
+  },
+  "readme": "See https://github.com/ChuckTerry/Invictus/blob/main/README.md",
+  "displayName": "Invictus Build Tools"
 }
