@@ -3,7 +3,8 @@ import { nonDestructiveAssign } from './util/nonDestructiveAssign.js';
 export function buildGlobalObject() {
   const object = {
     classDefinitions: {
-      FlashCardSet: null
+      FlashCardSet: null,
+      FlashCard: null
     },
     flashCards: {
       sets: [],
