@@ -33,10 +33,12 @@ class FlashCardSet {
     this.activeCard = null;
     this.activeCardSetIndex = 0;
 
+    const FlashCardClass = typeof FlashCard === 'undefined' ? globalThis.invictus.classDefinitions.FlashCard : FlashCard;
+
     const cardCount = json.FlashCards.length;
     for (let index = 0; index < cardCount; index++) {
       const cardData = json.FlashCards[index];
-      const card = new FlashCard(cardData);
+      const card = new FlashCardClass(cardData);
       this.cardSet.push(card);
     }
     invictus.flashCards.sets.push(this);
