@@ -132,7 +132,7 @@ class FlashCardSet {
     const cardAreaCards = [...this.cardArea.children];
     const cardCount = cardAreaCards.length;
     if (cardCount > 0) {
-      for (letindex = 0; index < cardCount; index++) {
+      for (let index = 0; index < cardCount; index++) {
         cardAreaCards[index].remove();
       }
     }
