@@ -7,6 +7,19 @@ async function getTemplate() {
   return template.toString();
 }
 
+async function buildHtml(string) {
+  let html = await readFile('./buildTemplate.html');
+  html = html.toString().replace(/\{\{\{LOADER\}\}\}/, string.toString());
+
+  const data = new Uint8Array(Buffer.from(html));
+  const promise = writeFile('./TestBuild.html', data);
+
+  await promise;
+  console.log('HTML Build Operation Complete\r\nResult: %s\r\n[End of Result]', html);
+
+  return html;
+}
+
 
 async function fillTemplate(mainString) {
   const nonDestructiveAssign = await readFile('../src/util/nonDestructiveAssign.js');
@@ -36,14 +49,17 @@ async function fillTemplate(mainString) {
   mainString = mutate(mainString);
 
   const data = new Uint8Array(Buffer.from(mainString));
-  const promise = writeFile('./TestBuild.txt', data);
+  const promise = writeFile('./TestBuild.js', data);
 
   await promise;
-  console.log('Build Operation Complete\r\nResult: %s\r\n[End of Result]', mainString);
+  console.log('JavaScript Build Operation Complete\r\nResult: %s\r\n[End of Result]', mainString);
+
+  return mainString;
 }
 
 getTemplate()
-  .then((template) => fillTemplate(template));
+  .then((template) => fillTemplate(template))
+  .then((string) => buildHtml(string));
 
 const replaceArray = [
   ['../src/util/nonDestructiveAssign.js', /\{\{\{function_nonDestructiveAssign\}\}\}/],
