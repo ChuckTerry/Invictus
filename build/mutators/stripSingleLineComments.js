@@ -11,6 +11,7 @@ export function stripSingleLineComments(string) {
     if (line.indexOf('@preserve') > -1) continue;
     const commentIndex = line.indexOf('//');
     if (commentIndex > -1) {
+      if ((/:\/\//g).test(line)) continue;
       lineArray[index] = line.substring(0, commentIndex);
     }
   }
