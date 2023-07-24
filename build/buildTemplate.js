@@ -13,6 +13,9 @@ import { buildGlobalObject } from '../src/buildGlobalObject';
   {{{function_buildGlobalObject}}}
   
   buildGlobalObject();
+
+  invictus.classDefinitions.FlashCardSet = FlashCardSet;
+  invictus.classDefinitions.FlashCard = FlashCard;
   
   if (document.querySelector('#invictus-stylesheet') === null) {
     const stylesheet = document.createElement('style');
@@ -21,21 +24,3 @@ import { buildGlobalObject } from '../src/buildGlobalObject';
     document.head.appendChild(stylesheet);
   }
 })();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
