@@ -79,22 +79,22 @@ class FlashCardSet {
 
     /* Previous Card Button Click Event */
     this.previousCardButton.addEventListener('click', () => {
-      this.activeCard.classList.toggle('active');
-      this.activeCard.classList.remove('selected');
+      this.activeCard.element.classList.toggle('active');
+      this.activeCard.element.classList.remove('selected');
       this.activeCardSetIndex = this.activeCardSetIndex === 0 ? this.cardSet.length - 1 : this.activeCardSetIndex - 1;
       this.activeCard = this.cardSet[this.activeCardSetIndex];
-      this.activeCard.classList.toggle('hidden');
-      this.activeCard.classList.toggle('active');
+      this.activeCard.element.classList.toggle('hidden');
+      this.activeCard.element.classList.toggle('active');
     });
 
     /* Next Card Button Click Event */
     this.nextCardButton.addEventListener('click', () => {
-      this.activeCard.classList.toggle('active');
-      this.activeCard.classList.remove('selected');
+      this.activeCard.element.classList.toggle('active');
+      this.activeCard.element.classList.remove('selected');
       this.activeCardSetIndex = this.activeCardSetIndex === this.cardSet.length - 1 ? 0 : this.activeCardSetIndex + 1;
       this.activeCard = this.cardSet[this.activeCardSetIndex];
-      this.activeCard.classList.toggle('hidden');
-      this.activeCard.classList.toggle('active');
+      this.activeCard.element.classList.toggle('hidden');
+      this.activeCard.element.classList.toggle('active');
     });
   }
 
@@ -132,13 +132,13 @@ class FlashCardSet {
     const cardAreaCards = [...this.cardArea.children];
     const cardCount = cardAreaCards.length;
     if (cardCount > 0) {
-      for (index = 0; index < cardCount; index++) {
+      for (letindex = 0; index < cardCount; index++) {
         cardAreaCards[index].remove();
       }
     }
     if (this.activeCard !== null) {
-      this.activeCard?.classList.remove('selected');
-      this.activeCard?.classList.remove('active');
+      this.activeCard?.element.classList.remove('selected');
+      this.activeCard?.element.classList.remove('active');
     }
     let currentIndex = this.cardSet.length; let randomIndex;
     while (currentIndex !== 0) {
