@@ -31,7 +31,7 @@ export class FlashCard {
     element.appendChild(innerElement);
     innerElement.outerHTML = '<div class="invictus card-inner"><div class="invictus card-front"><div class="invictus card-term"><p class="invictus term-text"></p></div></div><div class="invictus card-back"><div class="invictus card-definition"><p class="invictus definition-text"></p></div></div></div>';
     element.querySelector('.term-text').innerText = this.term;
-    element.querySelector('.term-definition').innerText = this.definition;
+    element.querySelector('.definition-text').innerText = this.definition;
     innerElement.addEventListener('click', this.flip);
     return element;
   }
