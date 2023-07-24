@@ -1,6 +1,6 @@
 import { nonDestructiveAssign } from './util/nonDestructiveAssign.js';
 
-(() => {
+export function buildGlobalObject() {
   const object = {
     classDefinitions: {
       FlashCardSet: null
@@ -25,4 +25,4 @@ import { nonDestructiveAssign } from './util/nonDestructiveAssign.js';
 
   if (globalThis.invictus === undefined) globalThis.invictus = {};
   nonDestructiveAssign(globalThis.invictus, object);
-})();
+}

@@ -1,4 +1,10 @@
+import { buildGlobalObject } from '../src/buildGlobalObject';
+
 (() => {
+  
+  {{{class_FlashCard}}}
+  {{{class_FlashCardSet}}}
+
   {{{function_nonDestructiveAssign}}}
   {{{function_uuidGenerator}}}
   {{{function_navLinkInjector}}}
@@ -6,8 +12,7 @@
   
   {{{function_buildGlobalObject}}}
   
-  {{{class_FlashCard}}}
-  {{{class_FlashCardSet}}}
+  buildGlobalObject();
   
   if (document.querySelector('#invictus-stylesheet') === null) {
     const stylesheet = document.createElement('style');
