@@ -10,7 +10,7 @@ import { readFileSync } from 'node:fs';
 export function getBuildNumber(channel = '1') {
   const twoDigitYear = new Date().getFullYear().toString().substring(2);
   const buildTime = getBuildTime();
-  const buildNumber = readFileSync('../BUILD').toString();
+  const buildNumber = readFileSync('./util/BUILD').toString();
   return `${channel}${twoDigitYear}${buildTime}${buildNumber}`;
 }
 
