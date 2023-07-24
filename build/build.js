@@ -4,13 +4,11 @@ import { mutate } from './mutate.js';
 
 async function getTemplate() {
   const template = await readFile('./buildTemplate.js');
-  console.log(template.toString());
   return template.toString();
 }
 
 
 async function fillTemplate(mainString) {
-  console.log(mainString)
   const nonDestructiveAssign = await readFile('../src/util/nonDestructiveAssign.js');
   mainString = mainString.replaceAll(/\{\{\{function_nonDestructiveAssign\}\}\}/g, nonDestructiveAssign.toString());
 
