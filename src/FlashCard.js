@@ -51,7 +51,11 @@ export class FlashCard {
 
   flip(eventOrHtmlElement) {
     const cardElement = eventOrHtmlElement instanceof HTMLElement ? eventOrHtmlElement : eventOrHtmlElement.currentTarget;
-    cardElement.parentElement.classList.toggle('selected');
+    if (cardElement.classList.contains('card-wrapper')) {
+      cardElement.classList.toggle('selected');
+    } else {
+      cardElement.parentElement.classList.toggle('selected');
+    }
   }
 
 }
