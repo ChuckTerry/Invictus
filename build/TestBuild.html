@@ -1,7 +1,7 @@
 <div class="invictus placeholder" id="{{{UUID}}}"></div>
 <script class="invictus loader" id="loader-{{{UUID}}}">
   (() => {
-  console['log']('Initializing Invictus Build 12329705138');
+  console['log']('Initializing Invictus Build 12330517641');
   class FlashCard {
   static from(term, definition) {
     return new FlashCard({
@@ -49,7 +49,11 @@
   }
   flip(eventOrHtmlElement) {
     const cardElement = eventOrHtmlElement instanceof HTMLElement ? eventOrHtmlElement : eventOrHtmlElement.currentTarget;
-    cardElement.parentElement.classList.toggle('selected');
+    if (cardElement.classList.contains('card-wrapper')) {
+      cardElement.classList.toggle('selected');
+    } else {
+      cardElement.parentElement.classList.toggle('selected');
+    }
   }
 }
 class FlashCardSet {
