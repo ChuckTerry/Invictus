@@ -1,1 +1,20 @@
-
+name: "updateVisuals"
+on:
+  push:
+    branches: [ "main" ]
+    
+jobs:
+  update:
+    name: Update
+    runs-on: 'ubuntu-latest'
+    permissions:
+      actions: read
+      contents: read
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@master
+    - name: Update diagram
+      uses: githubocto/repo-visualizer@0.7.1
+      with:
+        output_file: "images/diagram.svg"
+        excluded_paths: "dist,node_modules"
