@@ -26,16 +26,18 @@ If applicable, add screenshots to help explain your problem.
 
 ## Platform Information ##
 (On Windows: [Windows Key] + [r], then type "winver" and press enter)
- - OS: [e.g. Windows 11, iOS, Ubuntu]
--- Edition [e.g. Home, Pro]
--- Version [e.g. 22H2]
--- Build [e.g. 23521.1000]
--- Release Channel [e.g. Insider Build (For most, this will be blank)]
+- OS: [e.g. Windows 11, iOS, Ubuntu]
+  - Edition [e.g. Home, Pro]
+  - Version [e.g. 22H2]
+  - Build [e.g. 23521.1000]
+  - Release Channel [e.g. Insider Build (For most, this will be blank)]
+
+## Browser Information ##
 - Browser [e.g. Chrome, Safari]
--- Version [e.g. 116.0.1938.43]
--- Build [e.g. Official]
--- Channel [e.g. Beta]
--- Architecture [e.g. 64-bit, 32-bit]
+  - Version [e.g. 116.0.1938.43]
+  - Build [e.g. Official]
+  - Channel [e.g. Beta]
+  - Architecture [e.g. 64-bit, 32-bit]
 
 ## Moodle Information ##
 - Version [e.g. 4.1]
