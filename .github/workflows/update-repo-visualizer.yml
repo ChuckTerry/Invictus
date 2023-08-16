@@ -16,5 +16,5 @@ jobs:
     - name: Repo Visualizer
       uses: githubocto/repo-visualizer@0.9.1
       with:
-        output_file: "/project-files/diagram.svg"
+        output_file: "./project-files/diagram.svg"
         excluded_paths: "dist,node_modules"
