@@ -8,8 +8,8 @@ jobs:
     name: Update
     runs-on: 'ubuntu-latest'
     permissions:
-      actions: read
-      contents: read
+      actions: write
+      contents: write
     steps:
     - name: Checkout code
       uses: actions/checkout@master
